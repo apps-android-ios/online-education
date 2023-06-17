@@ -24,11 +24,9 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    margin: StatusBar.currentHeight,
     backgroundColor: "#fff",
+    position: "relative",
+    paddingTop: StatusBar.currentHeight,
   },
   homeSection: {
     display: "flex",
@@ -38,7 +36,7 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     height: undefined,
-    width: "100%",
+    width: "80%",
     aspectRatio: 1,
     borderRadius: 10,
   },
@@ -50,8 +48,10 @@ const styles = StyleSheet.create({
   imageTitle: {
     textTransform: "uppercase",
     fontSize: 20,
+    fontFamily: "JosefinSans_500Medium",
   },
   description: {
     fontSize: 18,
+    fontFamily: "JosefinSans_400Regular",
   },
 });

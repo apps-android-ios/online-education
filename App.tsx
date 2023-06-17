@@ -1,32 +1,32 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Nunito_600SemiBold, Nunito_700Bold } from "@expo-google-fonts/nunito";
+import {
+  useFonts,
+  JosefinSans_400Regular,
+  JosefinSans_500Medium,
+  JosefinSans_300Light,
+} from "@expo-google-fonts/josefin-sans";
 
-import Home from "./screens/home";
-import About from "./screens/about";
-import Contact from "./screens/contact";
-import Course from "./screens/course";
-import User from "./screens/user";
+import AppLoading from "expo-app-loading";
+import { SWRConfig } from "swr";
+import swrConfig from "./swr-config";
 
-type RootStackParamList = {
-  Home: undefined;
-  Course: undefined;
-  Contact: undefined;
-  User: undefined;
-  About: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+import Navigation from "./routes/navigation";
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    JosefinSans_400Regular,
+    JosefinSans_500Medium,
+    Nunito_600SemiBold,
+    Nunito_700Bold,
+    JosefinSans_300Light,
+  });
+
+  if (!fontsLoaded) {
+    <AppLoading />;
+  }
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Course" component={Course} />
-        <Stack.Screen name="Contact" component={Contact} />
-        <Stack.Screen name="User" component={User} />
-        <Stack.Screen name="About" component={About} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SWRConfig value={swrConfig}>
+      <Navigation />
+    </SWRConfig>
   );
 }
