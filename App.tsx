@@ -13,6 +13,9 @@ import swrConfig from "./swr-config";
 import Navigation from "./routes/navigation";
 
 export default function App() {
+  let x = 1;
+  console.log("App executed");
+
   let [fontsLoaded] = useFonts({
     JosefinSans_400Regular,
     JosefinSans_500Medium,

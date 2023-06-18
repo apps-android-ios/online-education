@@ -4,6 +4,8 @@ import React from "react";
 import i18n from "../i18n";
 
 export default function Home() {
+  console.log("app executed");
+
   return (
     <View style={styles.container}>
       <View style={styles.homeSection}>
